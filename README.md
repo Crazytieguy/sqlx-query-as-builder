@@ -23,6 +23,8 @@ let user = query_as_builder!(
 .build()?;               // Build final struct
 ```
 
+The builder expression must have setter methods matching the SQL column names. Works with any builder library (bon, derive_builder, typed-builder) or hand-written builders.
+
 ## Installation
 
 ```toml
@@ -43,9 +45,11 @@ sqlx-query-as-builder = { version = "0.1", features = ["postgres"] }
 
 Leverages `sqlx_macros_core::query::expand_input()` and transforms the output to replace struct construction with builder method calls. Full feature parity with SQLx's `query_as!` macros.
 
-## Development Status
+## Testing
 
-**Untested.** Implementation complete but not yet tested with real databases. Use at your own risk.
+See integration tests in `sqlx-query-as-builder/tests/integration_test.rs` for usage examples.
+
+Run tests with: `cargo test --features sqlite`
 
 ## License
 

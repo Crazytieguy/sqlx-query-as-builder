@@ -29,3 +29,8 @@ json = ["sqlx-query-as-builder-macros/json"]
 
 [dependencies]
 sqlx-query-as-builder-macros = { version = "0.1.0", path = "../sqlx-query-as-builder-macros" }
+
+[dev-dependencies]
+bon = "3"
+sqlx = { version = "0.8", features = ["sqlite", "runtime-tokio", "migrate"] }
+tokio = { version = "1", features = ["full"] }
