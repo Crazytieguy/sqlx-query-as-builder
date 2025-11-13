@@ -29,10 +29,13 @@ The builder expression must have setter methods matching the SQL column names. W
 
 ```toml
 [dependencies]
-sqlx-query-as-builder = { version = "0.1", features = ["postgres"] }
+sqlx = { version = "=0.8.6", features = ["<your-db>", "<runtime>"] }
+sqlx-query-as-builder = { version = "0.1", features = ["<your-db>"] }
 ```
 
-**Supported features:** `mysql`, `postgres`, `sqlite`, `sqlite-unbundled`, and all SQLx type integrations (`chrono`, `uuid`, `json`, etc.)
+You must pin SQLx to exactly version 0.8.6 and enable the same database features on both `sqlx` and `sqlx-query-as-builder`.
+
+Supported features: `mysql`, `postgres`, `sqlite`, `sqlite-unbundled`, and all SQLx type integrations (`chrono`, `uuid`, `json`, etc.)
 
 ## Macros
 
@@ -47,7 +50,7 @@ Leverages `sqlx_macros_core::query::expand_input()` and transforms the output to
 
 ## Testing
 
-See integration tests in `sqlx-query-as-builder/tests/integration_test.rs` for usage examples.
+See [integration tests](sqlx-query-as-builder/tests/integration_test.rs) for usage examples.
 
 Run tests with: `cargo test --features sqlite`
 
