@@ -1,0 +1,39 @@
+[package]
+name = "sqlx-query-as-builder-macros"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Proc-macro implementation for sqlx-query-as-builder. Not intended to be used directly."
+
+[lib]
+proc-macro = true
+
+[features]
+default = []
+
+mysql = ["sqlx-macros-core/mysql", "sqlx-mysql"]
+postgres = ["sqlx-macros-core/postgres", "sqlx-postgres"]
+sqlite = ["sqlx-macros-core/sqlite", "sqlx-sqlite", "sqlx-sqlite/bundled"]
+sqlite-unbundled = ["sqlx-macros-core/sqlite-unbundled", "sqlx-sqlite", "sqlx-sqlite/unbundled"]
+
+bigdecimal = ["sqlx-macros-core/bigdecimal"]
+bit-vec = ["sqlx-macros-core/bit-vec"]
+chrono = ["sqlx-macros-core/chrono"]
+ipnet = ["sqlx-macros-core/ipnet"]
+ipnetwork = ["sqlx-macros-core/ipnetwork"]
+mac_address = ["sqlx-macros-core/mac_address"]
+rust_decimal = ["sqlx-macros-core/rust_decimal"]
+time = ["sqlx-macros-core/time"]
+uuid = ["sqlx-macros-core/uuid"]
+json = ["sqlx-macros-core/json"]
+
+[dependencies]
+sqlx-core = { workspace = true, features = ["any"] }
+sqlx-macros-core = { workspace = true, features = ["macros"] }
+sqlx-mysql = { version = "=0.8.6", optional = true, default-features = false }
+sqlx-postgres = { version = "=0.8.6", optional = true, default-features = false }
+sqlx-sqlite = { version = "=0.8.6", optional = true, default-features = false }
+syn.workspace = true
+quote.workspace = true
+proc-macro2.workspace = true

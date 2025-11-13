@@ -1,0 +1,20 @@
+[workspace]
+members = [
+    "sqlx-query-as-builder",
+    "sqlx-query-as-builder-macros",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Yoav Tzfati"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yoav-lavi/sqlx-query-as-builder"
+
+[workspace.dependencies]
+sqlx-core = { version = "=0.8.6", default-features = false }
+sqlx-macros-core = { version = "=0.8.6", default-features = false }
+syn = { version = "2", features = ["full", "visit-mut"] }
+quote = "1"
+proc-macro2 = "1"

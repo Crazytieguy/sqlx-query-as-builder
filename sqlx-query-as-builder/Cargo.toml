@@ -1,0 +1,31 @@
+[package]
+name = "sqlx-query-as-builder"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Builder pattern macros for SQLx query_as! - populate builders instead of constructing structs directly"
+keywords = ["database", "sql", "sqlx", "builder", "macro"]
+categories = ["database"]
+
+[features]
+default = []
+
+mysql = ["sqlx-query-as-builder-macros/mysql"]
+postgres = ["sqlx-query-as-builder-macros/postgres"]
+sqlite = ["sqlx-query-as-builder-macros/sqlite"]
+sqlite-unbundled = ["sqlx-query-as-builder-macros/sqlite-unbundled"]
+
+bigdecimal = ["sqlx-query-as-builder-macros/bigdecimal"]
+bit-vec = ["sqlx-query-as-builder-macros/bit-vec"]
+chrono = ["sqlx-query-as-builder-macros/chrono"]
+ipnet = ["sqlx-query-as-builder-macros/ipnet"]
+ipnetwork = ["sqlx-query-as-builder-macros/ipnetwork"]
+mac_address = ["sqlx-query-as-builder-macros/mac_address"]
+rust_decimal = ["sqlx-query-as-builder-macros/rust_decimal"]
+time = ["sqlx-query-as-builder-macros/time"]
+uuid = ["sqlx-query-as-builder-macros/uuid"]
+json = ["sqlx-query-as-builder-macros/json"]
+
+[dependencies]
+sqlx-query-as-builder-macros = { version = "0.1.0", path = "../sqlx-query-as-builder-macros" }
