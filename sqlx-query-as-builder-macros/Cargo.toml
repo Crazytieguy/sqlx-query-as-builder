@@ -5,6 +5,8 @@ edition.workspace = true
 authors.workspace = true
 license.workspace = true
 description = "Proc-macro implementation for sqlx-query-as-builder. Not intended to be used directly."
+keywords = ["database", "sql", "sqlx", "builder", "macro"]
+categories = ["database"]
 
 [lib]
 proc-macro = true
