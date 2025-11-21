@@ -6,7 +6,7 @@ members = [
 resolver = "2"
 
 [workspace.package]
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 authors = ["Yoav Tzfati"]
 license = "MIT OR Apache-2.0"
@@ -15,6 +15,7 @@ repository = "https://github.com/Crazytieguy/sqlx-query-as-builder"
 [workspace.dependencies]
 sqlx-core = { version = "=0.8.6", default-features = false }
 sqlx-macros-core = { version = "=0.8.6", default-features = false }
+sqlx-query-as-builder-macros = { version = "0.1.2", path = "sqlx-query-as-builder-macros" }
 syn = { version = "2", features = ["full", "visit-mut"] }
 quote = "1"
 proc-macro2 = "1"

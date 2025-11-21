@@ -28,7 +28,7 @@ uuid = ["sqlx-query-as-builder-macros/uuid"]
 json = ["sqlx-query-as-builder-macros/json"]
 
 [dependencies]
-sqlx-query-as-builder-macros = { version = "0.1.0", path = "../sqlx-query-as-builder-macros" }
+sqlx-query-as-builder-macros = { workspace = true }
 
 [dev-dependencies]
 bon = "3"
