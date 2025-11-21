@@ -79,16 +79,24 @@ impl VisitMut for StructLiteralReplacer {
         if let Expr::Struct(expr_struct) = expr
             && !self.replaced
         {
+            let struct_path = &expr_struct.path;
+            let struct_fields = &expr_struct.fields;
             let builder = &self.builder_expr;
-            let mut builder_calls = quote! { #builder };
 
-            for field in &expr_struct.fields {
+            let mut builder_calls = quote! { #builder };
+            for field in struct_fields {
                 let field_name = &field.member;
-                let field_value = &field.expr;
-                builder_calls = quote! { #builder_calls.#field_name(#field_value) };
+                builder_calls = quote! { #builder_calls.#field_name(record.#field_name) };
             }
 
-            *expr = syn::parse2(builder_calls).unwrap();
+            let block = quote! {
+                {
+                    let record = #struct_path { #struct_fields };
+                    #builder_calls
+                }
+            };
+
+            *expr = syn::parse2(block).unwrap();
             self.replaced = true;
             return;
         }

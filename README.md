@@ -30,7 +30,7 @@ The builder expression must have setter methods matching the SQL column names. W
 ```toml
 [dependencies]
 sqlx = { version = "=0.8.6", features = ["<your-db>", "<runtime>"] }
-sqlx-query-as-builder = { version = "0.1", features = ["<your-db>"] }
+sqlx-query-as-builder = { version = "0.1.1", features = ["<your-db>"] }
 ```
 
 You must pin SQLx to exactly version 0.8.6 and enable the same database features on both `sqlx` and `sqlx-query-as-builder`.
